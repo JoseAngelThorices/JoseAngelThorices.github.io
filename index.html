@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio - José Ángel Thorices</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #0f172a; color: white; }
+    .center { display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .box { background: #1e293b; padding: 2rem; border-radius: 10px; width: 300px; text-align: center; }
+    input { width: 100%; padding: 10px; border: none; border-radius: 5px; margin-top: 10px; }
+    button { width: 100%; padding: 10px; margin-top: 15px; background: #38bdf8; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #0ea5e9; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<div id="login" class="center">
+  <div class="box">
+    <h2>Acceso al Portafolio</h2>
+    <p>Introduce la contraseña:</p>
+    <input type="password" id="pass" placeholder="Contraseña" />
+    <button onclick="checkPass()">Entrar</button>
+    <p id="error" style="color:red; display:none;">Contraseña incorrecta</p>
+  </div>
+</div>
+
+<div id="content" class="hidden">
+  <header style="padding: 2rem;">
+    <h1>José Ángel Thorices</h1>
+    <p>Programador · Proyectos y aplicaciones</p>
+  </header>
+
+  <section style="padding: 2rem;">
+    <h2>Mis proyectos</h2>
+
+    <div style="background:#1e293b; padding:1rem; border-radius:10px; margin-bottom:1rem;">
+      <h3>Proyecto 1</h3>
+      <p>Descripción del proyecto.</p>
+      <a href="#" style="color:#38bdf8">Ver demo</a> · 
+      <a href="#" style="color:#38bdf8">Ver código</a>
+    </div>
+
+    <div style="background:#1e293b; padding:1rem; border-radius:10px; margin-bottom:1rem;">
+      <h3>Proyecto 2</h3>
+      <p>Descripción del proyecto.</p>
+      <a href="#" style="color:#38bdf8">Ver demo</a> · 
+      <a href="#" style="color:#38bdf8">Ver código</a>
+    </div>
+
+  </section>
+</div>
+
+<script>
+  function checkPass() {
+    const pass = document.getElementById("pass").value;
+    const correct = "RepoAppThorices";
+
+    if (pass === correct) {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("content").classList.remove("hidden");
+    } else {
+      document.getElementById("error").style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>
