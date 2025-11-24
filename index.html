@@ -195,11 +195,24 @@ input {
 .remember {
   margin-top: 12px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 8px;
   font-size: 0.9rem;
   opacity: 0.9;
+  width: 100%;
+  padding: 0 5px;
 }
+
+.remember label {
+  color: #e8e8e8;
+}
+
+.remember input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
 
 button {
   width: 100%;
@@ -236,8 +249,8 @@ button:hover {
     <input type="password" id="pass" placeholder="Contraseña" />
 
     <div class="remember">
-      <input type="checkbox" id="rememberPass" />
       <label for="rememberPass">Recordar contraseña</label>
+      <input type="checkbox" id="rememberPass" />
     </div>
 
     <button onclick="checkPass()">Entrar</button>
