@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio - José Ángel Thorices</title>
 
-  <!-- TIPOGRAFÍA -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -16,38 +15,8 @@
       color: #e8e8e8;
     }
 
+    .hidden { display: none; }
 
-    .box {
-      background: #1a1a1f;
-      padding: 2rem;
-      width: 320px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0px 0px 12px #00000050;
-    }
-
-
-    button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 20px;
-      background: #ffce54;
-      color: black;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #ffd97a;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    /* --- PORTAFOLIO --- */
     .container {
       max-width: 1200px;
       margin: auto;
@@ -78,10 +47,9 @@
       margin-top: 50px;
     }
 
-    .projects {
-      margin-top: 30px;
+    .two-columns {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
 
@@ -97,13 +65,6 @@
     .project-item:hover {
       transform: translateX(5px);
       background: #26262e;
-    }
-
-    /* Grilla para proyectos grandes */
-    .two-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
     }
 
     .skills {
@@ -128,110 +89,84 @@
       padding-bottom: 40px;
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-text h1 {
-        font-size: 3rem;
-      }
-      .two-columns {
-        grid-template-columns: 1fr;
-      }
+    /* LOGIN */
+    #login {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    /* --- LOGIN ESTILOS MEJORADOS --- */
+    .login-bg {
+      position: absolute;
+      width: 140%;
+      height: 140%;
+      background: linear-gradient(135deg, #1e1e2e, #2f2f42, #1b1b26);
+      animation: bgMove 10s infinite alternate ease-in-out;
+      filter: blur(40px);
+      opacity: 0.4;
+    }
 
-#login {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
+    @keyframes bgMove {
+      from { transform: translate(-5%, -5%); }
+      to   { transform: translate(5%, 5%); }
+    }
 
-/* Fondo con degradado animado */
-.login-bg {
-  position: absolute;
-  width: 140%;
-  height: 140%;
-  background: linear-gradient(135deg, #1e1e2e, #2f2f42, #1b1b26);
-  animation: bgMove 10s infinite alternate ease-in-out;
-  filter: blur(40px);
-  opacity: 0.4;
-}
+    .box {
+      position: relative;
+      background: #1a1a1fcc;
+      padding: 2rem;
+      width: 340px;
+      border-radius: 16px;
+      text-align: center;
+      backdrop-filter: blur(12px);
+      border: 1px solid #ffffff20;
+      box-shadow: 0px 4px 18px #00000060;
+    }
 
-@keyframes bgMove {
-  from { transform: translate(-5%, -5%); }
-  to   { transform: translate(5%, 5%); }
-}
+    input {
+      width: 92%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: none;
+      background: #2a2a32;
+      color: white;
+      font-size: 1rem;
+    }
 
-/* Caja del login */
-.box {
-  position: relative;
-  background: #1a1a1fcc;
-  padding: 2rem;
-  width: 340px;
-  border-radius: 16px;
-  text-align: center;
-  backdrop-filter: blur(12px);
-  border: 1px solid #ffffff20;
-  box-shadow: 0px 4px 18px #00000060;
-}
+    .remember {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      padding: 0 5px;
+    }
 
-input {
-  width: 92%;
-  padding: 12px;
-  margin-top: 15px;
-  border-radius: 6px;
-  border: none;
-  background: #2a2a32;
-  color: white;
-  font-size: 1rem;
-}
+    .remember input { width: 18px; height: 18px; }
 
-.remember {
-  margin-top: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.9rem;
-  opacity: 0.9;
-  width: 100%;
-  padding: 0 5px;
-}
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background: #ffce54;
+      color: black;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
 
-.remember label {
-  color: #e8e8e8;
-}
-
-.remember input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-
-button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 20px;
-  background: #ffce54;
-  color: black;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: 0.2s;
-}
-
-button:hover {
-  background: #ffd97a;
-  transform: translateY(-2px);
-}
+    button:hover {
+      background: #ffd97a;
+      transform: translateY(-2px);
+    }
 
   </style>
 </head>
@@ -255,113 +190,84 @@ button:hover {
 
     <button onclick="checkPass()">Entrar</button>
 
-    <p id="error" style="color: #ff6b6b; display: none;">Contraseña incorrecta</p>
+    <p id="error" style="color:#ff6b6b; display:none;">Contraseña incorrecta</p>
   </div>
 </div>
 
-<!-- CONTENIDO PRINCIPAL -->
+<!-- CONTENIDO -->
 <div id="content" class="hidden">
-
   <div class="container">
 
-    <!-- HERO -->
     <div class="hero">
       <div class="hero-text">
         <h1>Bienvenido.</h1>
         <p>
-          Soy <strong>José Ángel Thorices</strong>, programador especializado en aplicaciones multiplataforma, desarrollo web e interfaces modernas.
-          Aplicaciones eficientes, interfaces modernas y herramientas capaces de mejorar procesos reales.
-          He desarrollado sistemas para el sector agrícola, control de producción, gestión de fincas y optimización de riego, además de utilidades web y back-end.
+          Soy <strong>José Ángel Thorices</strong>, programador especializado en aplicaciones multiplataforma,
+          desarrollo web e interfaces modernas. 
         </p>
       </div>
     </div>
 
-    <!-- PROYECTOS DESTACADOS -->
     <h2 class="section-title">Proyectos Destacados</h2>
 
     <div class="two-columns">
 
-    <a class="project-item" 
-     href="https://github.com/JoseAngelThorices/Proyecto-Alfinf" 
-     target="_blank" style="text-decoration:none; color:inherit;">
-    <h3>AlfinfData - Sistema de producción y control horario (Móvil)</h3>
-    <p>Registro producción agrícola y horario.</p>
-  </a>
-      
-  <a class="project-item" 
-     href="https://github.com/JoseAngelThorices/Proyecto-AgroAir" 
-     target="_blank" style="text-decoration:none; color:inherit;">
-    <h3>AgroAir – Sistema de Gestión de Fincas (WEB)</h3>
-    <p>Aplicación completa con mapas, zonas, sensores, cámaras, fotos y dashboards.</p>
-  </a>
+      <a class="project-item" href="https://github.com/JoseAngelThorices/Proyecto-Alfinf" target="_blank">
+        <h3>AlfinfData – Control horario y producción (Móvil)</h3>
+        <p>Registro de producción agrícola y control de jornada.</p>
+      </a>
 
-</div>
+      <a class="project-item" href="https://github.com/JoseAngelThorices/Proyecto-AgroAir" target="_blank">
+        <h3>AgroAir – Gestión de fincas (Web)</h3>
+        <p>Mapas, sensores, cámaras, fotos, dashboards y más.</p>
+      </a>
 
-    <!-- SKILLS -->
+    </div>
+
     <h2 class="section-title">Tecnologías</h2>
 
     <div class="skills">
-      <div class="skill">Programación Orientada a Objetos</div>
-      <div class="skill">Programación WEB</div>
       <div class="skill">Java</div>
-      <div class="skill">Python</div>
       <div class="skill">C#</div>
-      <div class="skill">.NET</div>
       <div class="skill">MAUI</div>
-      <div class="skill">Java Swing</div>
-      <div class="skill">JDBC</div>
-      <div class="skill">SQL & NoSQL</div>
-      <div class="skill">SQLite</div>
-      <div class="skill">XML</div>
-      <div class="skill">HTML</div>
-      <div class="skill">CSS & SCSS</div>
+      <div class="skill">Python</div>
       <div class="skill">JavaScript</div>
       <div class="skill">Vue 3</div>
-      <div class="skill">Bootstrap</div>
+      <div class="skill">SQL / NoSQL</div>
+      <div class="skill">SQLite</div>
       <div class="skill">APIs REST</div>
-      <div class="skill">JSON</div>
+      <div class="skill">Bootstrap</div>
+      <div class="skill">HTML / CSS / SCSS</div>
       <div class="skill">Git & GitHub</div>
-      <div class="skill">Sourcetree</div>
     </div>
 
-    <footer>
-      Portafolio de José Ángel Thorices · 2025
-    </footer>
+    <footer>Portafolio de José Ángel Thorices · 2025</footer>
 
   </div>
 </div>
 
 <script>
-  window.onload = () => {
-    const savedPass = localStorage.getItem("savedPass");
-    if (savedPass) {
-      document.getElementById("pass").value = savedPass;
-      document.getElementById("rememberPass").checked = true;
-    }
-  };
-
-  function checkPass() {
+  async function checkPass() {
     const pass = document.getElementById("pass").value;
-    const correct = "RepoAppThorices";
-    const remember = document.getElementById("rememberPass").checked;
 
-    if (pass === correct) {
+    // 🔐 HASH SEGURO DE TU CONTRASEÑA
+    const storedHash = "9f4de8339655f8bfc76e4c0f3ddb521b67bc843c3c42ae877658c5a3a9dec0d9";
 
-      if (remember) {
-        localStorage.setItem("savedPass", pass);
-      } else {
-        localStorage.removeItem("savedPass");
-      }
+    // Convertir contraseña introducida a SHA-256
+    const encoder = new TextEncoder();
+    const data = encoder.encode(pass);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
 
+    if (hashHex === storedHash) {
       document.getElementById("login").style.display = "none";
       document.getElementById("content").classList.remove("hidden");
-
     } else {
       document.getElementById("error").style.display = "block";
     }
   }
 </script>
-
 
 </body>
 </html>
