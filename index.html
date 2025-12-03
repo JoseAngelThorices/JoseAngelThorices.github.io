@@ -322,35 +322,9 @@
 </div>
 
 <script>
-  window.onload = () => {
-    const savedPass = localStorage.getItem("savedPass");
-    if (savedPass) {
-      document.getElementById("pass").value = savedPass;
-      document.getElementById("rememberPass").checked = true;
-    }
-  };
-
-  async function checkPass() {
-    const pass = document.getElementById("pass").value;
-  
-    // HASH DE TU CONTRASEÑA "1234"
-    const storedHash = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4";
-  
-    // Convertir la contraseña introducida a hash SHA-256
-    const encoder = new TextEncoder();
-    const data = encoder.encode(pass);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-  
-    // Convertir hash a string hexadecimal
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
-  
-    if (hashHex === storedHash) {
-      document.getElementById("login").style.display = "none";
-      document.getElementById("content").classList.remove("hidden");
-    } else {
-      document.getElementById("error").style.display = "block";
-    }
+  function enterPortfolio() {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("content").classList.remove("hidden");
   }
 </script>
 
