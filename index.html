@@ -14,9 +14,11 @@
       font-family: 'Poppins', sans-serif; 
       background: #0f0f13;
       color: #e8e8e8;
+      overflow-x: hidden;
     }
 
-    /* PANTALLA INICIAL SOLO BOTÓN */
+    /* ====== PANTALLA DE BIENVENIDA ====== */
+
     #startScreen {
       height: 100vh;
       display: flex;
@@ -28,11 +30,11 @@
 
     .start-bg {
       position: absolute;
-      width: 140%;
-      height: 140%;
+      width: 150%;
+      height: 150%;
       background: linear-gradient(135deg, #1e1e2e, #2f2f42, #1b1b26);
       animation: bgMove 10s infinite alternate ease-in-out;
-      filter: blur(40px);
+      filter: blur(45px);
       opacity: 0.4;
     }
 
@@ -41,46 +43,66 @@
       to   { transform: translate(5%, 5%); }
     }
 
-    .start-box {
+    .welcome-box {
       position: relative;
       background: #1a1a1fcc;
-      padding: 2rem;
-      width: 260px;
-      border-radius: 16px;
+      padding: 2.5rem;
+      width: 360px;
       text-align: center;
+      border-radius: 18px;
       backdrop-filter: blur(12px);
-      border: 1px solid #ffffff20;
-      box-shadow: 0px 4px 18px #00000060;
+      border: 1px solid #ffffff25;
+      box-shadow: 0px 4px 20px #00000070;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .welcome-box h2 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .welcome-box p {
+      margin-top: 12px;
+      opacity: 0.85;
+      font-size: 1rem;
+      line-height: 1.5rem;
     }
 
     button {
       width: 100%;
       padding: 12px;
-      margin-top: 10px;
+      margin-top: 25px;
       background: #ffce54;
       color: black;
       border: none;
       border-radius: 6px;
       font-weight: 600;
       cursor: pointer;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       transition: 0.2s;
     }
 
     button:hover {
       background: #ffd97a;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .hidden {
       display: none;
     }
 
-    /* --- PORTAFOLIO --- */
+    /* ====== PORTAFOLIO ====== */
+
     .container {
       max-width: 1200px;
       margin: auto;
       padding: 50px 30px;
+      animation: fadeIn 0.8s ease-out;
     }
 
     .hero {
@@ -94,12 +116,6 @@
     .hero-text h1 {
       font-size: 4rem;
       margin: 0;
-    }
-
-    .hero-text p {
-      margin-top: 20px;
-      opacity: 0.8;
-      line-height: 1.7rem;
     }
 
     .section-title {
@@ -161,59 +177,64 @@
         grid-template-columns: 1fr;
       }
     }
+
   </style>
 </head>
 
 <body>
 
-<!-- SOLO BOTÓN DE ENTRAR -->
+<!-- ========== PANTALLA DE BIENVENIDA ========== -->
+
 <div id="startScreen">
   <div class="start-bg"></div>
 
-  <div class="start-box">
+  <div class="welcome-box">
+    <h2>Bienvenido a mi Portafolio</h2>
+    <p>
+      Hola, soy <strong>José Ángel Thorices</strong>,  
+      programador multiplataforma y desarrollador web.
+      <br><br>
+      Pulsa el botón para acceder.
+    </p>
+
     <button onclick="enterPortfolio()">Entrar</button>
   </div>
 </div>
 
-<!-- CONTENIDO PORTAFOLIO -->
+<!-- ========== CONTENIDO PRINCIPAL ========== -->
+
 <div id="content" class="hidden">
 
   <div class="container">
 
-    <!-- HERO -->
     <div class="hero">
       <div class="hero-text">
         <h1>Bienvenido.</h1>
         <p>
           Soy <strong>José Ángel Thorices</strong>, programador especializado en aplicaciones multiplataforma,
-          desarrollo web e interfaces modernas.  
-          He desarrollado sistemas para el sector agrícola, control de producción, gestión de fincas
-          y optimización de riego, además de utilidades web y back-end.
+          desarrollo web e interfaces modernas.
         </p>
       </div>
     </div>
 
-    <!-- PROYECTOS -->
     <h2 class="section-title">Proyectos Destacados</h2>
 
     <div class="two-columns">
 
-      <a class="project-item" href="https://github.com/JoseAngelThorices/Proyecto-Alfinf" target="_blank" style="text-decoration:none; color:inherit;">
-        <h3>AlfinfData - Sistema de producción y control horario (Móvil)</h3>
-        <p>Registro de producción agrícola y horario.</p>
+      <a class="project-item" href="https://github.com/JoseAngelThorices/Proyecto-Alfinf" target="_blank">
+        <h3>AlfinfData (Móvil)</h3>
+        <p>Sistema para producción agrícola y control horario.</p>
       </a>
-      
-      <a class="project-item" href="https://github.com/JoseAngelThorices/Proyecto-AgroAir" target="_blank" style="text-decoration:none; color:inherit;">
-        <h3>AgroAir – Sistema de Gestión de Fincas (WEB)</h3>
-        <p>Aplicación completa con mapas, zonas, sensores, cámaras y dashboards.</p>
+
+      <a class="project-item" href="https://github.com/JoseAngelThorices/Proyecto-AgroAir" target="_blank">
+        <h3>AgroAir (Web)</h3>
+        <p>Gestión de fincas con mapas, cámaras, sensores y dashboards.</p>
       </a>
 
     </div>
 
-    <!-- SKILLS -->
     <h2 class="section-title">Tecnologías</h2>
-
-    <div class="skills">
+<div class="skills">
       <div class="skill">Java</div>
       <div class="skill">Python</div>
       <div class="skill">C#</div>
@@ -239,8 +260,11 @@
 
 <script>
   function enterPortfolio() {
-    document.getElementById("startScreen").style.display = "none";
-    document.getElementById("content").classList.remove("hidden");
+    document.getElementById("startScreen").style.opacity = "0";
+    setTimeout(() => {
+      document.getElementById("startScreen").style.display = "none";
+      document.getElementById("content").classList.remove("hidden");
+    }, 500);
   }
 </script>
 
