@@ -16,29 +16,60 @@
       color: #e8e8e8;
     }
 
-    .box {
-      background: #1a1a1f;
+    /* PANTALLA INICIAL SOLO BOTÓN */
+    #startScreen {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .start-bg {
+      position: absolute;
+      width: 140%;
+      height: 140%;
+      background: linear-gradient(135deg, #1e1e2e, #2f2f42, #1b1b26);
+      animation: bgMove 10s infinite alternate ease-in-out;
+      filter: blur(40px);
+      opacity: 0.4;
+    }
+
+    @keyframes bgMove {
+      from { transform: translate(-5%, -5%); }
+      to   { transform: translate(5%, 5%); }
+    }
+
+    .start-box {
+      position: relative;
+      background: #1a1a1fcc;
       padding: 2rem;
-      width: 320px;
-      border-radius: 12px;
+      width: 260px;
+      border-radius: 16px;
       text-align: center;
-      box-shadow: 0px 0px 12px #00000050;
+      backdrop-filter: blur(12px);
+      border: 1px solid #ffffff20;
+      box-shadow: 0px 4px 18px #00000060;
     }
 
     button {
       width: 100%;
       padding: 12px;
-      margin-top: 20px;
+      margin-top: 10px;
       background: #ffce54;
       color: black;
       border: none;
       border-radius: 6px;
       font-weight: 600;
       cursor: pointer;
+      font-size: 1.1rem;
+      transition: 0.2s;
     }
 
     button:hover {
       background: #ffd97a;
+      transform: translateY(-2px);
     }
 
     .hidden {
@@ -74,13 +105,6 @@
     .section-title {
       font-size: 2.5rem;
       margin-top: 50px;
-    }
-
-    .projects {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
     }
 
     .project-item {
@@ -137,123 +161,21 @@
         grid-template-columns: 1fr;
       }
     }
-
-    /* --- LOGIN ESTILOS MEJORADOS --- */
-
-    #login {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .login-bg {
-      position: absolute;
-      width: 140%;
-      height: 140%;
-      background: linear-gradient(135deg, #1e1e2e, #2f2f42, #1b1b26);
-      animation: bgMove 10s infinite alternate ease-in-out;
-      filter: blur(40px);
-      opacity: 0.4;
-    }
-
-    @keyframes bgMove {
-      from { transform: translate(-5%, -5%); }
-      to   { transform: translate(5%, 5%); }
-    }
-
-    .box {
-      position: relative;
-      background: #1a1a1fcc;
-      padding: 2rem;
-      width: 340px;
-      border-radius: 16px;
-      text-align: center;
-      backdrop-filter: blur(12px);
-      border: 1px solid #ffffff20;
-      box-shadow: 0px 4px 18px #00000060;
-    }
-
-    input {
-      width: 92%;
-      padding: 12px;
-      margin-top: 15px;
-      border-radius: 6px;
-      border: none;
-      background: #2a2a32;
-      color: white;
-      font-size: 1rem;
-    }
-
-    .remember {
-      margin-top: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.9rem;
-      opacity: 0.9;
-      width: 100%;
-      padding: 0 5px;
-    }
-
-    .remember label {
-      color: #e8e8e8;
-    }
-
-    .remember input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 20px;
-      background: #ffce54;
-      color: black;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #ffd97a;
-      transform: translateY(-2px);
-    }
-
   </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div id="login">
-  <div class="login-bg"></div>
+<!-- SOLO BOTÓN DE ENTRAR -->
+<div id="startScreen">
+  <div class="start-bg"></div>
 
-  <div class="box">
-    <h2>Acceso al Portafolio</h2>
-    <p>Introduce la contraseña:</p>
-
-    <input type="password" id="pass" placeholder="Contraseña" />
-
-    <div class="remember">
-      <label for="rememberPass">Recordar contraseña</label>
-      <input type="checkbox" id="rememberPass" />
-    </div>
-
-    <button onclick="checkPass()">Entrar</button>
-
-    <p id="error" style="color: #ff6b6b; display: none;">Contraseña incorrecta</p>
+  <div class="start-box">
+    <button onclick="enterPortfolio()">Entrar</button>
   </div>
 </div>
 
-<!-- CONTENIDO PRINCIPAL -->
+<!-- CONTENIDO PORTAFOLIO -->
 <div id="content" class="hidden">
 
   <div class="container">
@@ -263,26 +185,27 @@
       <div class="hero-text">
         <h1>Bienvenido.</h1>
         <p>
-          Soy <strong>José Ángel Thorices</strong>, programador especializado en aplicaciones multiplataforma, desarrollo web e interfaces modernas.
-          Aplicaciones eficientes, interfaces modernas y herramientas capaces de mejorar procesos reales.
-          He desarrollado sistemas para el sector agrícola, control de producción, gestión de fincas y optimización de riego, además de utilidades web y back-end.
+          Soy <strong>José Ángel Thorices</strong>, programador especializado en aplicaciones multiplataforma,
+          desarrollo web e interfaces modernas.  
+          He desarrollado sistemas para el sector agrícola, control de producción, gestión de fincas
+          y optimización de riego, además de utilidades web y back-end.
         </p>
       </div>
     </div>
 
-    <!-- PROYECTOS DESTACADOS -->
+    <!-- PROYECTOS -->
     <h2 class="section-title">Proyectos Destacados</h2>
 
     <div class="two-columns">
 
       <a class="project-item" href="https://github.com/JoseAngelThorices/Proyecto-Alfinf" target="_blank" style="text-decoration:none; color:inherit;">
         <h3>AlfinfData - Sistema de producción y control horario (Móvil)</h3>
-        <p>Registro producción agrícola y horario.</p>
+        <p>Registro de producción agrícola y horario.</p>
       </a>
       
       <a class="project-item" href="https://github.com/JoseAngelThorices/Proyecto-AgroAir" target="_blank" style="text-decoration:none; color:inherit;">
         <h3>AgroAir – Sistema de Gestión de Fincas (WEB)</h3>
-        <p>Aplicación completa con mapas, zonas, sensores, cámaras, fotos y dashboards.</p>
+        <p>Aplicación completa con mapas, zonas, sensores, cámaras y dashboards.</p>
       </a>
 
     </div>
@@ -291,27 +214,20 @@
     <h2 class="section-title">Tecnologías</h2>
 
     <div class="skills">
-      <div class="skill">Programación Orientada a Objetos</div>
-      <div class="skill">Programación WEB</div>
       <div class="skill">Java</div>
       <div class="skill">Python</div>
       <div class="skill">C#</div>
       <div class="skill">.NET</div>
       <div class="skill">MAUI</div>
       <div class="skill">Java Swing</div>
-      <div class="skill">JDBC</div>
-      <div class="skill">SQL & NoSQL</div>
+      <div class="skill">SQL / NoSQL</div>
       <div class="skill">SQLite</div>
-      <div class="skill">XML</div>
       <div class="skill">HTML</div>
-      <div class="skill">CSS & SCSS</div>
+      <div class="skill">CSS / SCSS</div>
       <div class="skill">JavaScript</div>
       <div class="skill">Vue 3</div>
-      <div class="skill">Bootstrap</div>
       <div class="skill">APIs REST</div>
-      <div class="skill">JSON</div>
       <div class="skill">Git & GitHub</div>
-      <div class="skill">Sourcetree</div>
     </div>
 
     <footer>
@@ -323,7 +239,7 @@
 
 <script>
   function enterPortfolio() {
-    document.getElementById("login").style.display = "none";
+    document.getElementById("startScreen").style.display = "none";
     document.getElementById("content").classList.remove("hidden");
   }
 </script>
