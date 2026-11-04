@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=26&duration=3000&pause=800&color=818CF8&center=true&vCenter=true&width=640&lines=Hola%2C+soy+Jos%C3%A9+%C3%81ngel+%F0%9F%91%8B;Desarrollador+Full+Stack;Vue+3+%2B+TypeScript+%C2%B7+Python%2FDjango;.NET+MAUI+%C2%B7+C%23;Integraci%C3%B3n+de+IA+con+Claude" alt="Typing SVG" />
+<picture><img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=26&duration=3000&pause=800&color=818CF8&center=true&vCenter=true&width=640&lines=Hola%2C+soy+Jos%C3%A9+%C3%81ngel+%F0%9F%91%8B;Desarrollador+Full+Stack;Vue+3+%2B+TypeScript+%C2%B7+Python%2FDjango;.NET+MAUI+%C2%B7+C%23;Integraci%C3%B3n+de+IA+con+Claude" alt="Typing SVG" /></picture>
 
 **Desarrollador Full Stack** · Palos de la Frontera, Huelva 🇪🇸 · Disponible en remoto (España) o en Huelva
 
@@ -28,39 +28,39 @@
 **Frontend**
 
 <p>
-  <img src="https://skillicons.dev/icons?i=vue,ts,js,html,css,sass,vite&theme=dark" alt="Frontend" />
+  <picture><img src="https://skillicons.dev/icons?i=vue,ts,js,html,css,sass,vite&theme=dark" alt="Frontend" /></picture>
 </p>
 
 **Backend**
 
 <p>
-  <img src="https://skillicons.dev/icons?i=python,django,cs,dotnet,java,nodejs&theme=dark" alt="Backend" />
+  <picture><img src="https://skillicons.dev/icons?i=python,django,cs,dotnet,java,nodejs&theme=dark" alt="Backend" /></picture>
 </p>
 
 **Bases de datos**
 
 <p>
-  <img src="https://skillicons.dev/icons?i=mysql,mongodb,sqlite&theme=dark" alt="Bases de datos" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/microsoftsqlserver/microsoftsqlserver-original.svg" width="48" alt="SQL Server" />
+  <picture><img src="https://skillicons.dev/icons?i=mysql,mongodb,sqlite&theme=dark" alt="Bases de datos" /></picture>
+  <picture><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/microsoftsqlserver/microsoftsqlserver-original.svg" width="48" alt="SQL Server" /></picture>
 </p>
 
 **Móvil y escritorio**
 
 <p>
-  <img src="https://skillicons.dev/icons?i=androidstudio&theme=dark" alt="Móvil" />
-  <img src="https://img.shields.io/badge/.NET_MAUI-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET MAUI" />
-  <img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" alt="Capacitor" />
-  <img src="https://img.shields.io/badge/Jetpack_Compose-4285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white" alt="Jetpack Compose" />
+  <picture><img src="https://skillicons.dev/icons?i=androidstudio&theme=dark" alt="Móvil" /></picture>
+  <picture><img src="https://img.shields.io/badge/.NET_MAUI-512BD4?style=for-the-badge&logo=dotnet&logoColor=white" alt=".NET MAUI" /></picture>
+  <picture><img src="https://img.shields.io/badge/Capacitor-119EFF?style=for-the-badge&logo=capacitor&logoColor=white" alt="Capacitor" /></picture>
+  <picture><img src="https://img.shields.io/badge/Jetpack_Compose-4285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white" alt="Jetpack Compose" /></picture>
 </p>
 
 **Calidad, DevOps e IA**
 
 <p>
-  <img src="https://skillicons.dev/icons?i=docker,git,github,bitbucket,linux&theme=dark" alt="DevOps" />
-  <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest" />
-  <img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint" />
-  <img src="https://img.shields.io/badge/Claude_API-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude API" />
-  <img src="https://img.shields.io/badge/Azure_AI-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Azure AI" />
+  <picture><img src="https://skillicons.dev/icons?i=docker,git,github,bitbucket,linux&theme=dark" alt="DevOps" /></picture>
+  <picture><img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest" /></picture>
+  <picture><img src="https://img.shields.io/badge/ESLint-4B32C3?style=for-the-badge&logo=eslint&logoColor=white" alt="ESLint" /></picture>
+  <picture><img src="https://img.shields.io/badge/Claude_API-D97757?style=for-the-badge&logo=anthropic&logoColor=white" alt="Claude API" /></picture>
+  <picture><img src="https://img.shields.io/badge/Azure_AI-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white" alt="Azure AI" /></picture>
 </p>
 
 ---
@@ -92,9 +92,9 @@ App multiplataforma de fichaje y control de producción para campañas de fresa.
 
 ### 🏅 Certificaciones
 
-![Azure](https://img.shields.io/badge/Azure_AI_Fundamentals-AI--900-0078D4?style=flat-square&logo=microsoftazure)
-![Oracle](https://img.shields.io/badge/Oracle_Academy-Java_·_Databases_·_JavaFX_·_JasperReports-F80000?style=flat-square&logo=oracle)
-![Anthropic](https://img.shields.io/badge/Anthropic_Academy-Claude_Code_·_API_·_MCP_(en_curso)-D97757?style=flat-square&logo=anthropic)
+<picture><img src="https://img.shields.io/badge/Azure_AI_Fundamentals-AI--900-0078D4?style=flat-square&logo=microsoftazure" alt="Azure" /></picture>
+<picture><img src="https://img.shields.io/badge/Oracle_Academy-Java_·_Databases_·_JavaFX_·_JasperReports-F80000?style=flat-square&logo=oracle" alt="Oracle" /></picture>
+<picture><img src="https://img.shields.io/badge/Anthropic_Academy-Claude_Code_·_API_·_MCP_(en_curso" alt="Anthropic" /></picture>-D97757?style=flat-square&logo=anthropic)
 
 ---
 
