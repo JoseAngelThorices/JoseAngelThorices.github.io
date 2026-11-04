@@ -1,282 +1,662 @@
 <!DOCTYPE html>
 <html lang="es">
-<head> 
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portafolio - José Ángel Thorices</title>
-
-  <!-- TIPOGRAFÍA -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>José Ángel Rodríguez-Thorices · Desarrollador Full Stack</title>
+  <meta name="description" content="Desarrollador Full Stack (Vue 3, TypeScript, Python/Django, .NET MAUI). Portafolio de proyectos de José Ángel Rodríguez-Thorices." />
+  <meta property="og:title" content="José Ángel Rodríguez-Thorices · Desarrollador Full Stack" />
+  <meta property="og:description" content="Vue 3 · TypeScript · Python/Django · .NET MAUI · Integración de IA" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/203919821?v=4" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%236366f1'/><text x='50' y='66' font-size='46' font-family='monospace' font-weight='700' text-anchor='middle' fill='white'>JA</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
 
   <style>
+    :root {
+      --bg: #0a0b10;
+      --bg-2: #11131b;
+      --card: #151824;
+      --card-2: #1b1f2e;
+      --line: #262b3d;
+      --text: #e7e9f2;
+      --muted: #9aa1b8;
+      --accent: #818cf8;
+      --accent-2: #22d3ee;
+      --accent-3: #34d399;
+      --grad: linear-gradient(120deg, #818cf8 0%, #22d3ee 50%, #34d399 100%);
+      --radius: 18px;
+      --shadow: 0 20px 50px -20px rgba(0,0,0,.6);
+    }
+    :root[data-theme="light"] {
+      --bg: #f7f8fc;
+      --bg-2: #eef0f7;
+      --card: #ffffff;
+      --card-2: #f3f4fa;
+      --line: #e1e4ef;
+      --text: #141726;
+      --muted: #5b6178;
+      --accent: #4f46e5;
+      --accent-2: #0891b2;
+      --accent-3: #059669;
+      --grad: linear-gradient(120deg, #4f46e5 0%, #0891b2 50%, #059669 100%);
+      --shadow: 0 20px 40px -24px rgba(30,40,90,.25);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif; 
-      background: #0f0f13;
-      color: #e8e8e8;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
       overflow-x: hidden;
+      transition: background .3s, color .3s;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* ---------- Fondo ---------- */
+    .bg-glow {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 10% -5%, rgba(129,140,248,.18), transparent 60%),
+        radial-gradient(500px 400px at 95% 10%, rgba(34,211,238,.12), transparent 60%),
+        radial-gradient(600px 500px at 50% 110%, rgba(52,211,153,.08), transparent 60%);
+    }
+    .bg-grid {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .35;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%);
     }
 
-    /* ====== PANTALLA DE BIENVENIDA ====== */
-
-    #startScreen {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
+    /* ---------- Navegación ---------- */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--bg) 75%, transparent);
+      border-bottom: 1px solid var(--line);
     }
-
-    .start-bg {
-      position: absolute;
-      width: 150%;
-      height: 150%;
-      background: linear-gradient(135deg, #1e1e2e, #2f2f42, #1b1b26);
-      animation: bgMove 10s infinite alternate ease-in-out;
-      filter: blur(45px);
-      opacity: 0.4;
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-family: 'JetBrains Mono', monospace; font-weight: 600; font-size: 1.05rem; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 26px; align-items: center; font-size: .92rem; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); }
+    .theme-btn {
+      width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--line);
+      background: var(--card); color: var(--text); cursor: pointer; font-size: 1rem;
+      display: grid; place-items: center;
     }
+    @media (max-width: 760px) { .nav-links a { display: none; } }
 
-    @keyframes bgMove {
-      from { transform: translate(-5%, -5%); }
-      to   { transform: translate(5%, 5%); }
+    /* ---------- Hero ---------- */
+    .hero { padding: 96px 0 72px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: center; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 14px; border-radius: 999px; font-size: .82rem; font-weight: 500;
+      border: 1px solid color-mix(in srgb, var(--accent-3) 40%, transparent);
+      background: color-mix(in srgb, var(--accent-3) 10%, transparent);
+      color: var(--accent-3);
     }
-
-    .welcome-box {
-      position: relative;
-      background: #1a1a1fcc;
-      padding: 2.5rem;
-      width: 360px;
-      text-align: center;
-      border-radius: 18px;
-      backdrop-filter: blur(12px);
-      border: 1px solid #ffffff25;
-      box-shadow: 0px 4px 20px #00000070;
-      animation: fadeIn 1.2s ease-out;
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-3); animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,.6); } 70% { box-shadow: 0 0 0 10px rgba(52,211,153,0); } 100% { box-shadow: 0 0 0 0 rgba(52,211,153,0); } }
+    .hero h1 { font-size: clamp(2.4rem, 5.5vw, 4rem); line-height: 1.08; margin: 22px 0 14px; letter-spacing: -.03em; font-weight: 800; }
+    .role { font-family: 'JetBrains Mono', monospace; font-size: clamp(1rem, 2.2vw, 1.25rem); color: var(--muted); min-height: 1.8em; }
+    .role .typed { color: var(--accent-2); }
+    .cursor { display: inline-block; width: 2px; height: 1.1em; background: var(--accent-2); vertical-align: -3px; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero p.lead { color: var(--muted); font-size: 1.08rem; max-width: 560px; margin: 18px 0 30px; }
+    .cta { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px; padding: 13px 22px; border-radius: 12px;
+      font-weight: 600; font-size: .95rem; transition: transform .2s, box-shadow .2s, background .2s;
     }
+    .btn svg { width: 18px; height: 18px; }
+    .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 10px 30px -10px rgba(99,102,241,.7); }
+    .btn-ghost { border: 1px solid var(--line); background: var(--card); }
+    .btn:hover { transform: translateY(-3px); }
 
-    .welcome-box h2 {
-      margin: 0;
-      font-size: 1.8rem;
+    .hero-card {
+      position: relative; border-radius: 24px; padding: 28px; background: var(--card);
+      border: 1px solid var(--line); box-shadow: var(--shadow);
     }
-
-    .welcome-box p {
-      margin-top: 12px;
-      opacity: 0.85;
-      font-size: 1rem;
-      line-height: 1.5rem;
+    .hero-card::before {
+      content: ""; position: absolute; inset: -1px; border-radius: 24px; padding: 1px;
+      background: var(--grad); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; opacity: .6; pointer-events: none;
     }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 25px;
-      background: #ffce54;
-      color: black;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 1.05rem;
-      transition: 0.2s;
+    .avatar-row { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+    .avatar { width: 72px; height: 72px; border-radius: 18px; object-fit: cover; border: 2px solid var(--line); }
+    .avatar-row h3 { margin: 0; font-size: 1.05rem; }
+    .avatar-row small { color: var(--muted); }
+    .code {
+      font-family: 'JetBrains Mono', monospace; font-size: .82rem; line-height: 1.75;
+      background: var(--bg-2); border-radius: 14px; padding: 16px 18px; border: 1px solid var(--line); overflow-x: auto;
     }
+    .k { color: #c084fc; } .s { color: #34d399; } .p { color: #22d3ee; }
+    :root[data-theme="light"] .k { color: #7c3aed; } :root[data-theme="light"] .s { color: #047857; } :root[data-theme="light"] .p { color: #0e7490; }
 
-    button:hover {
-      background: #ffd97a;
-      transform: translateY(-3px);
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; padding-top: 64px; gap: 40px; } }
+
+    /* ---------- Cifras ---------- */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px; }
+    .stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; text-align: center; }
+    .stat b { display: block; font-size: 1.9rem; font-weight: 800; letter-spacing: -.02em; }
+    .stat span { color: var(--muted); font-size: .88rem; }
+    @media (max-width: 760px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ---------- Secciones ---------- */
+    section { padding: 72px 0; }
+    .eyebrow { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: .85rem; letter-spacing: .08em; }
+    h2.title { font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin: 8px 0 14px; letter-spacing: -.02em; font-weight: 800; }
+    .sub { color: var(--muted); max-width: 640px; margin: 0 0 40px; }
+
+    /* ---------- Proyectos ---------- */
+    .project {
+      display: grid; grid-template-columns: 1.05fr 1fr; margin-bottom: 32px;
+      background: var(--card); border: 1px solid var(--line); border-radius: 24px; overflow: hidden;
+      box-shadow: var(--shadow); transition: transform .3s, border-color .3s;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    /* ====== PORTAFOLIO ====== */
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 50px 30px;
-      animation: fadeIn 0.8s ease-out;
-    }
-
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 40px;
-      margin-bottom: 80px;
-    }
-
-    .hero-text h1 {
-      font-size: 4rem;
-      margin: 0;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      margin-top: 50px;
-    }
-
-    .project-item {
-      background: #1a1a1f;
-      padding: 18px;
-      border-left: 5px solid #ffce54;
-      border-radius: 8px;
-      transition: 0.2s;
-      cursor: pointer;
-    }
-
-    .project-item:hover {
-      transform: translateX(5px);
-      background: #26262e;
-    }
-
-    .two-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .skill {
-      background: #1e1e24;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      border: 1px solid #333;
-    }
-
-    footer {
-      margin-top: 80px;
-      text-align: center;
-      opacity: 0.6;
-      padding-bottom: 40px;
-    }
-
+    .project:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+    .project.reverse .shot { order: 2; }
+    .shot { position: relative; min-height: 340px; display: grid; place-items: center; padding: 32px; overflow: hidden; }
+    .shot.agro { background: radial-gradient(circle at 30% 20%, #10b98155, transparent 60%), linear-gradient(135deg, #064e3b, #0f172a); }
+    .shot.alfinf { background: radial-gradient(circle at 70% 20%, #6366f155, transparent 60%), linear-gradient(135deg, #1e1b4b, #0f172a); }
+    .info { padding: 36px; display: flex; flex-direction: column; }
+    .tag { font-family: 'JetBrains Mono', monospace; font-size: .78rem; color: var(--accent-2); }
+    .info h3 { font-size: 1.6rem; margin: 6px 0 10px; letter-spacing: -.01em; }
+    .info p { color: var(--muted); margin: 0 0 16px; }
+    .info ul { margin: 0 0 22px; padding: 0; list-style: none; display: grid; gap: 8px; }
+    .info li { padding-left: 26px; position: relative; font-size: .94rem; }
+    .info li::before { content: "▹"; position: absolute; left: 4px; color: var(--accent-3); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 8px; font-size: .8rem; background: var(--card-2); border: 1px solid var(--line); }
+    .chip img { width: 15px; height: 15px; }
+    .links { margin-top: auto; display: flex; gap: 12px; flex-wrap: wrap; }
     @media (max-width: 900px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .hero-text h1 {
-        font-size: 3rem;
-      }
-      .two-columns {
-        grid-template-columns: 1fr;
-      }
+      .project { grid-template-columns: 1fr; }
+      .project.reverse .shot { order: 0; }
+      .shot { min-height: 260px; padding: 24px 16px; }
+      .info { padding: 26px; }
     }
 
+    /* Maqueta navegador (AgroAir) */
+    .browser { width: 100%; max-width: 420px; border-radius: 12px; overflow: hidden; background: #0b1220; border: 1px solid #ffffff1f; box-shadow: 0 30px 60px -20px #000; transform: perspective(1000px) rotateY(-6deg) rotateX(3deg); }
+    .bar { display: flex; gap: 6px; padding: 10px 12px; background: #111a2e; align-items: center; }
+    .bar i { width: 10px; height: 10px; border-radius: 50%; display: block; }
+    .bar i:nth-child(1) { background: #f87171; } .bar i:nth-child(2) { background: #fbbf24; } .bar i:nth-child(3) { background: #34d399; }
+    .bar .url { margin-left: 10px; flex: 1; height: 16px; border-radius: 6px; background: #1e293b; font: 10px 'JetBrains Mono', monospace; color: #64748b; padding: 2px 8px; }
+    .dash { display: grid; grid-template-columns: 54px 1fr; height: 230px; }
+    .side { background: #0f1a2c; display: flex; flex-direction: column; gap: 10px; padding: 12px 10px; }
+    .side span { height: 8px; border-radius: 4px; background: #1f2d45; }
+    .side span:first-child { background: #10b981; }
+    .main { padding: 12px; display: grid; grid-template-rows: auto 1fr; gap: 10px; }
+    .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .kpi { background: #13213a; border-radius: 8px; padding: 8px; font: 600 11px 'Inter'; color: #e2e8f0; }
+    .kpi small { display: block; color: #64748b; font-weight: 400; font-size: 9px; }
+    .chart { background: #13213a; border-radius: 8px; padding: 10px; }
+    .chart svg { width: 100%; height: 100%; }
+    .line-anim { stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw 2.6s ease forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+
+    /* Maqueta móvil (Alfinf) */
+    .phone { width: 210px; height: 400px; border-radius: 34px; background: #0b0d1a; border: 8px solid #1f2236; box-shadow: 0 30px 60px -20px #000; padding: 16px 12px; display: flex; flex-direction: column; gap: 10px; transform: rotate(-4deg); }
+    .notch { width: 70px; height: 6px; border-radius: 6px; background: #1f2236; margin: 0 auto 6px; }
+    .phone h4 { margin: 0; color: #e0e7ff; font-size: .82rem; }
+    .phone small { color: #818cf8; font: 10px 'JetBrains Mono', monospace; }
+    .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: 1; }
+    .tile { border-radius: 12px; background: #161a33; display: grid; place-items: center; padding: 6px; text-align: center; color: #c7d2fe; font-size: 9.5px; font-weight: 600; }
+    .tile img { width: 34px; height: 34px; object-fit: contain; margin-bottom: 2px; display: block; margin-inline: auto; }
+    .tile.hl { background: linear-gradient(135deg, #4f46e5, #6366f1); color: #fff; }
+
+    /* ---------- Otros proyectos ---------- */
+    .mini-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .mini { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; transition: transform .25s, border-color .25s; }
+    .mini:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .mini .ico { font-size: 1.6rem; }
+    .mini h4 { margin: 10px 0 6px; font-size: 1.08rem; }
+    .mini p { color: var(--muted); font-size: .92rem; margin: 0 0 14px; }
+
+    /* ---------- Experiencia ---------- */
+    .timeline { position: relative; padding-left: 34px; }
+    .timeline::before { content: ""; position: absolute; left: 9px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--accent), var(--accent-2), transparent); }
+    .job { position: relative; margin-bottom: 26px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 26px; }
+    .job::before { content: ""; position: absolute; left: -31px; top: 28px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+    .job-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: baseline; }
+    .job h3 { margin: 0; font-size: 1.15rem; }
+    .job .co { color: var(--accent-2); font-weight: 600; }
+    .job time { font-family: 'JetBrains Mono', monospace; font-size: .8rem; color: var(--muted); }
+    .job ul { margin: 14px 0 0; padding-left: 18px; color: var(--muted); }
+    .job li { margin-bottom: 6px; }
+    .job li b { color: var(--text); font-weight: 600; }
+
+    /* ---------- Stack ---------- */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+    .stack-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .stack-card h3 { margin: 0 0 16px; font-size: 1rem; display: flex; align-items: center; gap: 10px; }
+    .stack-card h3 .e { font-size: 1.25rem; }
+    .icons { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tech {
+      display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 10px;
+      background: var(--card-2); border: 1px solid var(--line); font-size: .85rem; font-weight: 500;
+      transition: transform .2s, border-color .2s;
+    }
+    .tech:hover { transform: translateY(-3px) scale(1.04); border-color: var(--accent); }
+    .tech img { width: 22px; height: 22px; }
+    .tech .em { font-size: 1.1rem; line-height: 1; }
+    :root:not([data-theme="light"]) .inv { filter: invert(1) brightness(1.6); }
+
+    /* ---------- Formación ---------- */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .edu { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+    .edu h3 { margin: 0 0 14px; font-size: 1.05rem; }
+    .edu-item { display: flex; gap: 12px; padding: 10px 0; border-top: 1px dashed var(--line); }
+    .edu-item:first-of-type { border-top: 0; }
+    .edu-item .e { font-size: 1.3rem; }
+    .edu-item b { display: block; font-size: .95rem; }
+    .edu-item small { color: var(--muted); }
+    @media (max-width: 760px) { .edu-grid { grid-template-columns: 1fr; } }
+
+    /* ---------- Contacto ---------- */
+    .contact {
+      text-align: center; padding: 56px 28px; border-radius: 28px; position: relative; overflow: hidden;
+      background: var(--card); border: 1px solid var(--line);
+    }
+    .contact::after { content: ""; position: absolute; inset: 0; background: var(--grad); opacity: .08; pointer-events: none; }
+    .contact h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 8px 0 12px; letter-spacing: -.02em; }
+    .contact p { color: var(--muted); max-width: 520px; margin: 0 auto 28px; }
+    .contact .cta { justify-content: center; position: relative; z-index: 1; }
+
+    footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 40px 0 50px; }
+
+    /* ---------- Aparición al hacer scroll ---------- */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .line-anim { stroke-dashoffset: 0; }
+      * { animation: none !important; }
+    }
   </style>
 </head>
 
 <body>
+  <div class="bg-glow"></div>
+  <div class="bg-grid"></div>
 
-<!-- ========== PANTALLA DE BIENVENIDA ========== -->
-
-<div id="startScreen">
-  <div class="start-bg"></div>
-
-  <div class="welcome-box">
-    <h2>Bienvenido a mi Portafolio</h2>
-    <p>
-      Hola, soy <strong>José Ángel Thorices</strong>,  
-      programador multiplataforma y desarrollador web.
-      <br><br>
-      Pulsa el botón para acceder.
-    </p>
-
-    <button onclick="enterPortfolio()">Entrar</button>
-  </div>
-</div>
-
-<!-- ========== CONTENIDO PRINCIPAL ========== -->
-
-<div id="content" class="hidden">
-
-  <div class="container">
-
-    <div class="hero">
-      <div class="hero-text">
-        <h1>Bienvenido.</h1>
-        <p>
-          Soy <strong>José Ángel Thorices</strong>, programador especializado en aplicaciones multiplataforma,
-          desarrollo web e interfaces modernas.  
-          He desarrollado sistemas para el sector agrícola, control de producción, gestión de fincas
-          y optimización de riego, además de utilidades web y back-end.
-        </p>
+  <!-- ===== NAV ===== -->
+  <nav>
+    <div class="wrap">
+      <a href="#" class="logo">&lt;JoséÁngel <span>/</span>&gt;</a>
+      <div class="nav-links">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#stack">Stack</a>
+        <a href="#formacion">Formación</a>
+        <a href="#contacto">Contacto</a>
+        <button class="theme-btn" id="themeBtn" aria-label="Cambiar tema">🌙</button>
       </div>
     </div>
+  </nav>
 
-    <h2 class="section-title">Proyectos Destacados</h2>
+  <main class="wrap">
 
-    <div class="two-columns">
+    <!-- ===== HERO ===== -->
+    <header class="hero">
+      <div class="reveal">
+        <span class="badge"><span class="dot"></span> Disponible · Remoto (España) o Huelva</span>
+        <h1>Hola, soy<br /><span class="grad-text">José Ángel Rodríguez-Thorices</span></h1>
+        <div class="role mono">&gt; <span class="typed" id="typed"></span><span class="cursor"></span></div>
+        <p class="lead">
+          Desarrollador Full Stack con un año en producción en <strong>AgroAir</strong>: rediseñé la interfaz de su
+          plataforma web y móvil en <strong>Vue 3 + TypeScript</strong>, sus gráficos de datos agronómicos y el sistema
+          de acceso del backend en <strong>Django</strong>. Antes creé de principio a fin una app en <strong>.NET MAUI</strong>
+          que sigue en uso en empresas agrícolas.
+        </p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#proyectos">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h12"/></svg>
+            Ver proyectos
+          </a>
+          <a class="btn btn-ghost" href="https://github.com/JoseAngelThorices" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+            GitHub
+          </a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/joseangelthorices" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
 
-     <a class="project-item" href="https://github.com/JoseAngelThorices/Proyecto-Alfinf" target="_blank" style="text-decoration:none; color:inherit;">
-        <h3>AlfinfData - Sistema de producción y control horario (Móvil)</h3>
-        <p>Registro producción agrícola y horario.</p>
-      </a>
-      
-      <a class="project-item" href="https://github.com/JoseAngelThorices/Proyecto-AgroAir" target="_blank" style="text-decoration:none; color:inherit;">
-        <h3>AgroAir – Sistema de Gestión de Fincas (WEB)</h3>
-        <p>Aplicación completa con mapas, zonas, sensores, cámaras y dashboards.</p>
-      </a>
+      <div class="hero-card reveal">
+        <div class="avatar-row">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/203919821?v=4" alt="Foto de José Ángel" />
+          <div>
+            <h3>José Ángel R.-Thorices</h3>
+            <small>📍 Palos de la Frontera, Huelva</small>
+          </div>
+        </div>
+        <div class="code">
+<span class="k">const</span> <span class="p">dev</span> = {<br />
+&nbsp;&nbsp;rol: <span class="s">"Full Stack Developer"</span>,<br />
+&nbsp;&nbsp;frontend: [<span class="s">"Vue 3"</span>, <span class="s">"TypeScript"</span>],<br />
+&nbsp;&nbsp;backend: [<span class="s">"Python"</span>, <span class="s">"Django"</span>, <span class="s">".NET"</span>],<br />
+&nbsp;&nbsp;movil: [<span class="s">".NET MAUI"</span>, <span class="s">"Capacitor"</span>],<br />
+&nbsp;&nbsp;aprendiendo: [<span class="s">"Claude API"</span>, <span class="s">"MCP"</span>],<br />
+&nbsp;&nbsp;disponible: <span class="k">true</span><br />
+};
+        </div>
+      </div>
+    </header>
 
+    <!-- ===== CIFRAS ===== -->
+    <div class="stats reveal">
+      <div class="stat"><b class="grad-text">1 año</b><span>en producción (AgroAir)</span></div>
+      <div class="stat"><b class="grad-text">2</b><span>apps en uso real</span></div>
+      <div class="stat"><b class="grad-text">Vue 2→3</b><span>migración de frontend</span></div>
+      <div class="stat"><b class="grad-text">7</b><span>certificaciones y cursos</span></div>
     </div>
 
-    <h2 class="section-title">Tecnologías</h2>
+    <!-- ===== PROYECTOS ===== -->
+    <section id="proyectos">
+      <div class="reveal">
+        <div class="eyebrow">// 01 · PROYECTOS</div>
+        <h2 class="title">Proyectos destacados</h2>
+        <p class="sub">Aplicaciones reales para el sector agrícola, desde la interfaz hasta la base de datos.</p>
+      </div>
 
-    <div class="skills">
-      <div class="skill">Programación Orientada a Objetos</div>
-      <div class="skill">Programación WEB</div>
-      <div class="skill">Java</div>
-      <div class="skill">Python</div>
-      <div class="skill">C#</div>
-      <div class="skill">.NET</div>
-      <div class="skill">MAUI</div>
-      <div class="skill">Java Swing</div>
-      <div class="skill">JDBC</div>
-      <div class="skill">SQL & NoSQL</div>
-      <div class="skill">SQLite</div>
-      <div class="skill">XML</div>
-      <div class="skill">HTML</div>
-      <div class="skill">CSS & SCSS</div>
-      <div class="skill">JavaScript</div>
-      <div class="skill">Vue 3</div>
-      <div class="skill">Bootstrap</div>
-      <div class="skill">APIs REST</div>
-      <div class="skill">JSON</div>
-      <div class="skill">Git & GitHub</div>
-      <div class="skill">Sourcetree</div>
-    </div>
+      <!-- AgroAir -->
+      <article class="project reveal">
+        <div class="shot agro">
+          <div class="browser" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i><div class="url">app.agroair · /fincas</div></div>
+            <div class="dash">
+              <div class="side"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="main">
+                <div class="kpis">
+                  <div class="kpi"><small>Humedad</small>32 %</div>
+                  <div class="kpi"><small>Riego</small>4,2 mm</div>
+                  <div class="kpi"><small>Sensores</small>18</div>
+                </div>
+                <div class="chart">
+                  <svg viewBox="0 0 300 110" preserveAspectRatio="none">
+                    <defs>
+                      <linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10b981" stop-opacity=".45"/><stop offset="1" stop-color="#10b981" stop-opacity="0"/></linearGradient>
+                    </defs>
+                    <path d="M0 80 C30 70 50 40 80 45 S130 85 160 60 S220 20 250 35 S290 50 300 30 L300 110 L0 110Z" fill="url(#ga)"/>
+                    <path class="line-anim" d="M0 80 C30 70 50 40 80 45 S130 85 160 60 S220 20 250 35 S290 50 300 30" fill="none" stroke="#34d399" stroke-width="2.5"/>
+                    <path class="line-anim" d="M0 95 C40 90 70 70 110 75 S170 95 210 70 S270 60 300 65" fill="none" stroke="#22d3ee" stroke-width="2" style="animation-delay:.5s"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info">
+          <span class="tag">🌱 WEB + MÓVIL · PRODUCCIÓN</span>
+          <h3>AgroAir — Plataforma de gestión de fincas</h3>
+          <p>SPA para gestionar fincas agrícolas con mapas, sensores y paneles de datos agronómicos, también empaquetada como app Android/iOS.</p>
+          <ul>
+            <li>Rediseño de la mayor parte de la interfaz web y móvil.</li>
+            <li>Gráficos de riego y humedad rehechos para que se entiendan de un vistazo.</li>
+            <li>Sistema de acceso del backend rehecho en solitario: de IP a ID.</li>
+            <li>Mitad de la migración de Vue 2 a Vue 3 y reestructuración de la arquitectura.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vuejs/vuejs-original.svg" alt="" />Vue 3</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" alt="" />TypeScript</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/django/django-plain.svg" alt="" class="inv" />Django</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="" />MySQL</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mongodb/mongodb-original.svg" alt="" />MongoDB</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/vitejs/vitejs-original.svg" alt="" />Vite</span>
+            <span class="chip">⚡ Capacitor</span>
+            <span class="chip">📊 ECharts</span>
+            <span class="chip">🗺️ Leaflet</span>
+          </div>
+          <div class="links">
+            <a class="btn btn-ghost" href="https://github.com/JoseAngelThorices/Proyecto-AgroAir" target="_blank" rel="noopener">Ver código →</a>
+          </div>
+        </div>
+      </article>
 
-    <footer>
-      Portafolio de José Ángel Thorices · 2025
-    </footer>
+      <!-- Alfinf -->
+      <article class="project reverse reveal">
+        <div class="shot alfinf">
+          <div class="phone" aria-hidden="true">
+            <div class="notch"></div>
+            <small>AlfinfData · Campaña fresa</small>
+            <h4>Jornada de hoy</h4>
+            <div class="tiles">
+              <div class="tile hl"><div><img src="https://raw.githubusercontent.com/JoseAngelThorices/Proyecto-Alfinf/main/Resources/Images/panelfichajes.png" alt="" />Fichajes</div></div>
+              <div class="tile"><div><img src="https://raw.githubusercontent.com/JoseAngelThorices/Proyecto-Alfinf/main/Resources/Images/produccion.png" alt="" />Producción</div></div>
+              <div class="tile"><div><img src="https://raw.githubusercontent.com/JoseAngelThorices/Proyecto-Alfinf/main/Resources/Images/hora.png" alt="" />Horas</div></div>
+              <div class="tile"><div><img src="https://raw.githubusercontent.com/JoseAngelThorices/Proyecto-Alfinf/main/Resources/Images/tareas.png" alt="" />Tareas</div></div>
+              <div class="tile"><div><img src="https://raw.githubusercontent.com/JoseAngelThorices/Proyecto-Alfinf/main/Resources/Images/seleccion.png" alt="" />Selección</div></div>
+              <div class="tile"><div><img src="https://raw.githubusercontent.com/JoseAngelThorices/Proyecto-Alfinf/main/Resources/Images/lectores.png" alt="" />Lectores</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="info">
+          <span class="tag">📱 MÓVIL MULTIPLATAFORMA · EN USO</span>
+          <h3>AlfinfData — Fichaje y control de producción</h3>
+          <p>App hecha de principio a fin para empresas agrícolas: entrada y salida de trabajadores y cajas recogidas por cada empleado en campañas de fresa. Sigue en uso.</p>
+          <ul>
+            <li>Flujo completo de la jornada: selección de trabajadores, fichajes, horas, tareas y producción.</li>
+            <li>Módulos de configuración y gestión de lectores para el fichaje del personal.</li>
+            <li>Arquitectura MVVM con datos locales en SQLite.</li>
+          </ul>
+          <div class="chips">
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/csharp/csharp-original.svg" alt="" />C#</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/dotnetcore/dotnetcore-original.svg" alt="" />.NET 9 MAUI</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/sqlite/sqlite-original.svg" alt="" />SQLite</span>
+            <span class="chip">🧩 MVVM</span>
+            <span class="chip">📄 XAML</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/android/android-original.svg" alt="" />Android</span>
+          </div>
+          <div class="links">
+            <a class="btn btn-ghost" href="https://github.com/JoseAngelThorices/Proyecto-Alfinf" target="_blank" rel="noopener">Ver código →</a>
+          </div>
+        </div>
+      </article>
 
-  </div>
-</div>
+      <div class="mini-grid reveal">
+        <div class="mini">
+          <div class="ico">💬</div>
+          <h4>App de mensajería</h4>
+          <p>Proyecto personal: backend en Node.js y MongoDB con autenticación JWT y cliente Android en Jetpack Compose.</p>
+          <div class="chips">
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nodejs/nodejs-original.svg" alt="" />Node.js</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mongodb/mongodb-original.svg" alt="" />MongoDB</span>
+            <span class="chip">🔐 JWT</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jetpackcompose/jetpackcompose-original.svg" alt="" />Compose</span>
+          </div>
+        </div>
+        <div class="mini">
+          <div class="ico">🤖</div>
+          <h4>Integración de IA generativa</h4>
+          <p>Formación en curso con Anthropic Academy: Claude API, Claude Code y Model Context Protocol. Certificado Azure AI Fundamentals (AI-900).</p>
+          <div class="chips">
+            <span class="chip">✳️ Claude API</span>
+            <span class="chip">🔌 MCP</span>
+            <span class="chip"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/azure/azure-original.svg" alt="" />Azure AI</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script>
-  function enterPortfolio() {
-    document.getElementById("startScreen").style.opacity = "0";
-    setTimeout(() => {
-      document.getElementById("startScreen").style.display = "none";
-      document.getElementById("content").classList.remove("hidden");
-    }, 500);
-  }
-</script>
+    <!-- ===== EXPERIENCIA ===== -->
+    <section id="experiencia">
+      <div class="reveal">
+        <div class="eyebrow">// 02 · EXPERIENCIA</div>
+        <h2 class="title">Trayectoria</h2>
+      </div>
+      <div class="timeline">
+        <div class="job reveal">
+          <div class="job-head">
+            <h3>Desarrollador Full Stack · <span class="co">AgroAir</span></h3>
+            <time>JUN 2025 — JUN 2026</time>
+          </div>
+          <ul>
+            <li>Realicé la <b>mayor parte del rediseño de la interfaz</b> de la plataforma web y móvil (Vue 3, TypeScript).</li>
+            <li><b>Rediseñé por completo los gráficos agronómicos</b> (riego, humedad…) para que los usuarios interpretaran sus datos.</li>
+            <li><b>Rehíce en solitario el sistema de acceso</b> del backend Django: de identificación por IP a acceso por ID.</li>
+            <li>Mitad de la <b>migración de Vue 2 a Vue 3</b> y la mayor parte de la reestructuración de la arquitectura.</li>
+            <li>APIs REST sobre MySQL y MongoDB para datos y fotografías de campo; nueva app móvil con Capacitor.</li>
+            <li>Calidad con Vitest, ESLint y Prettier; despliegues automatizados con Bitbucket Pipelines.</li>
+          </ul>
+        </div>
+        <div class="job reveal">
+          <div class="job-head">
+            <h3>Desarrollador (prácticas) · <span class="co">Alfinf</span></h3>
+            <time>MAR 2025 — JUN 2025</time>
+          </div>
+          <ul>
+            <li>Desarrollé <b>de principio a fin</b> una app de fichaje y control de producción en C# y .NET MAUI con SQLite. <b>Sigue en uso.</b></li>
+            <li>Trabajé con el ERP Odoo desplegado en contenedores Docker.</li>
+          </ul>
+        </div>
+        <div class="job reveal">
+          <div class="job-head">
+            <h3>Técnico de sistemas (prácticas) · <span class="co">Television Cable Digital</span></h3>
+            <time>2022</time>
+          </div>
+          <ul>
+            <li>Soporte técnico, mantenimiento de redes y gestión de la web corporativa en Windows y Linux.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
+    <!-- ===== STACK ===== -->
+    <section id="stack">
+      <div class="reveal">
+        <div class="eyebrow">// 03 · STACK</div>
+        <h2 class="title">Tecnologías con las que trabajo</h2>
+        <p class="sub">Del navegador a la base de datos, pasando por el móvil y la integración de IA.</p>
+      </div>
+      <div class="stack-grid" id="stackGrid"></div>
+    </section>
+
+    <!-- ===== FORMACIÓN ===== -->
+    <section id="formacion">
+      <div class="reveal">
+        <div class="eyebrow">// 04 · FORMACIÓN</div>
+        <h2 class="title">Formación y certificaciones</h2>
+      </div>
+      <div class="edu-grid reveal">
+        <div class="edu">
+          <h3>🎓 Formación</h3>
+          <div class="edu-item"><span class="e">💻</span><div><b>CFGS Desarrollo de Aplicaciones Multiplataforma</b><small>Instituto Fomento Ocupacional · 2025 · Java, JavaFX, JasperReports, SQL Server</small></div></div>
+          <div class="edu-item"><span class="e">🖧</span><div><b>CFGM Sistemas Microinformáticos y Redes</b><small>I.E.S. San Sebastián, Huelva · 2022</small></div></div>
+          <div class="edu-item"><span class="e">🌍</span><div><b>Idiomas</b><small>Español nativo · Inglés B1</small></div></div>
+        </div>
+        <div class="edu">
+          <h3>🏅 Certificaciones</h3>
+          <div class="edu-item"><span class="e">☁️</span><div><b>Microsoft Azure AI Fundamentals (AI-900)</b><small>Microsoft</small></div></div>
+          <div class="edu-item"><span class="e">✳️</span><div><b>Claude Code, Claude API y MCP</b><small>Anthropic Academy · en curso</small></div></div>
+          <div class="edu-item"><span class="e">☕</span><div><b>Java Foundations · Fundamentos de Java · JavaFX</b><small>Oracle Academy · 2023–2025</small></div></div>
+          <div class="edu-item"><span class="e">🗄️</span><div><b>Database Foundations · JasperReports</b><small>Oracle Academy · 2023–2025</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ===== -->
+    <section id="contacto">
+      <div class="contact reveal">
+        <div class="eyebrow">// 05 · CONTACTO</div>
+        <h2>¿Hablamos? 👋</h2>
+        <p>Disponibilidad inmediata para trabajar en remoto desde España o de forma presencial/híbrida en Huelva.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="mailto:jathorices@gmail.com">✉️ jathorices@gmail.com</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/joseangelthorices" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/JoseAngelThorices" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Hecho con ☕ y código por José Ángel Rodríguez-Thorices · <span id="year"></span>
+  </footer>
+
+  <script>
+    // ----- Tema claro / oscuro -----
+    const root = document.documentElement;
+    const btn = document.getElementById('themeBtn');
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    setTheme(saved || (prefersLight ? 'light' : 'dark'));
+    function setTheme(t) {
+      root.setAttribute('data-theme', t);
+      btn.textContent = t === 'light' ? '🌙' : '☀️';
+      try { localStorage.setItem('theme', t); } catch (e) {}
+    }
+    btn.addEventListener('click', () => setTheme(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'));
+
+    // ----- Texto que se escribe solo -----
+    const roles = ['Desarrollador Full Stack', 'Vue 3 + TypeScript', 'Python · Django', '.NET MAUI · C#', 'Integración de IA con Claude'];
+    const el = document.getElementById('typed');
+    let r = 0, i = 0, del = false;
+    (function tick() {
+      const word = roles[r];
+      el.textContent = word.slice(0, i);
+      if (!del && i < word.length) i++;
+      else if (del && i > 0) i--;
+      else if (!del) { del = true; return setTimeout(tick, 1600); }
+      else { del = false; r = (r + 1) % roles.length; }
+      setTimeout(tick, del ? 35 : 70);
+    })();
+
+    // ----- Stack con iconos -----
+    const D = n => `https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/${n}.svg`;
+    const stack = [
+      { t: 'Frontend', e: '🎨', items: [
+        ['Vue 3', D('vuejs/vuejs-original')], ['TypeScript', D('typescript/typescript-original')],
+        ['JavaScript', D('javascript/javascript-original')], ['HTML5', D('html5/html5-original')],
+        ['CSS3', D('css3/css3-original')], ['SCSS', D('sass/sass-original')],
+        ['Vite', D('vitejs/vitejs-original')], ['Pinia', null, '🍍'], ['Element Plus', null, '🧱'] ] },
+      { t: 'Backend', e: '⚙️', items: [
+        ['Python', D('python/python-original')], ['Django', D('django/django-plain'), null, true],
+        ['C#', D('csharp/csharp-original')], ['.NET', D('dotnetcore/dotnetcore-original')],
+        ['Java', D('java/java-original')], ['Node.js', D('nodejs/nodejs-original')],
+        ['APIs REST', null, '🔗'], ['JWT', null, '🔐'] ] },
+      { t: 'Bases de datos', e: '🗄️', items: [
+        ['MySQL', D('mysql/mysql-original')], ['MongoDB', D('mongodb/mongodb-original')],
+        ['SQL Server', D('microsoftsqlserver/microsoftsqlserver-original')], ['SQLite', D('sqlite/sqlite-original')] ] },
+      { t: 'Móvil y escritorio', e: '📱', items: [
+        ['.NET MAUI', D('dot-net/dot-net-original')], ['Capacitor', null, '⚡'],
+        ['Jetpack Compose', D('jetpackcompose/jetpackcompose-original')], ['Android', D('android/android-original')],
+        ['Android Studio', D('androidstudio/androidstudio-original')], ['JavaFX', null, '☕'] ] },
+      { t: 'Calidad y DevOps', e: '🚀', items: [
+        ['Docker', D('docker/docker-original')], ['Git', D('git/git-original')],
+        ['GitHub', D('github/github-original'), null, true], ['Bitbucket', D('bitbucket/bitbucket-original')],
+        ['Vitest', D('vitest/vitest-original')], ['ESLint', D('eslint/eslint-original')], ['Prettier', null, '✨'] ] },
+      { t: 'IA y sistemas', e: '🤖', items: [
+        ['Claude API', null, '✳️'], ['MCP', null, '🔌'], ['Azure AI', D('azure/azure-original')],
+        ['Linux', D('linux/linux-original')], ['Windows', D('windows11/windows11-original')],
+        ['Odoo', null, '🟣'], ['Power BI', null, '📊'] ] },
+    ];
+    document.getElementById('stackGrid').innerHTML = stack.map(c => `
+      <div class="stack-card reveal">
+        <h3><span class="e">${c.e}</span>${c.t}</h3>
+        <div class="icons">${c.items.map(([n, src, em, inv]) => `
+          <span class="tech">${src ? `<img src="${src}" alt="" loading="lazy"${inv ? ' class="inv"' : ''} />` : `<span class="em">${em}</span>`}${n}</span>`).join('')}
+        </div>
+      </div>`).join('');
+
+    // ----- Aparición al hacer scroll -----
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(n => io.observe(n));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
