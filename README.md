@@ -4,7 +4,7 @@
 
 **Desarrollador Full Stack** · Palos de la Frontera, Huelva 🇪🇸 · Disponible en remoto (España) o en Huelva
 
-[![Portafolio](https://img.shields.io/badge/Portafolio-818CF8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://joseangelthorices.github.io/) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jos%C3%A9-%C3%A1ngel-rodr%C3%ADguez-thorices-garrocho-552b0a396/) [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jathorices@gmail.com) [![Descargar CV](https://img.shields.io/badge/Descargar_CV-10B981?style=for-the-badge&logo=readdotcv&logoColor=white)](https://joseangelthorices.github.io/CV_JoseAngel_RodriguezThorices.pdf)
+[![Portafolio](https://img.shields.io/badge/Portafolio-818CF8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://joseangelthorices.github.io/) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jos%C3%A9-%C3%A1ngel-rodr%C3%ADguez-thorices-garrocho-552b0a396/) [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jathorices@gmail.com) [![Descargar CV](https://img.shields.io/badge/Descargar_CV-10B981?style=for-the-badge&logo=readdotcv&logoColor=white)](https://raw.githubusercontent.com/JoseAngelThorices/JoseAngelThorices/main/CV_JoseAngel_RodriguezThorices.pdf)
 
 </div>
 
