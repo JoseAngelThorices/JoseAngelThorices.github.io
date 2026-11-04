@@ -4,9 +4,7 @@
 
 **Desarrollador Full Stack** · Palos de la Frontera, Huelva 🇪🇸 · Disponible en remoto (España) o en Huelva
 
-[![Portafolio](https://img.shields.io/badge/Portafolio-818CF8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://joseangelthorices.github.io/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joseangelthorices)
-[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jathorices@gmail.com)
+[![Portafolio](https://img.shields.io/badge/Portafolio-818CF8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://joseangelthorices.github.io/) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joseangelthorices) [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jathorices@gmail.com)
 
 </div>
 
@@ -101,8 +99,6 @@ App multiplataforma de fichaje y control de producción para campañas de fresa.
 ---
 
 <div align="center">
-
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=JoseAngelThorices&layout=compact&theme=tokyonight&hide_border=true&count_private=true" height="160" alt="Lenguajes" />
 
 <sub>📫 ¿Hablamos? Escríbeme a <a href="mailto:jathorices@gmail.com">jathorices@gmail.com</a></sub>
 
