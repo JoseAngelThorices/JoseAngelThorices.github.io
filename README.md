@@ -4,7 +4,7 @@
 
 **Desarrollador Full Stack** · Palos de la Frontera, Huelva 🇪🇸 · Disponible en remoto (España) o en Huelva
 
-[![Portafolio](https://img.shields.io/badge/Portafolio-818CF8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://joseangelthorices.github.io/) [![LinkedIn](https://img.shields.io/badge/LinkedIn-joseangelthorices-0A66C2?style=for-the-badge&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NSAyMC40NWgtMy41NnYtNS41N2MwLTEuMzMtLjAyLTMuMDQtMS44NS0zLjA0LTEuODYgMC0yLjE0IDEuNDUtMi4xNCAyLjk0djUuNjdIOS4zNFY5aDMuNDJ2MS41NmguMDVjLjQ4LS45IDEuNjQtMS44NSAzLjM3LTEuODUgMy42IDAgNC4yNyAyLjM3IDQuMjcgNS40NnY2LjI4Wk01LjM0IDcuNDNhMi4wNiAyLjA2IDAgMSAxIDAtNC4xMyAyLjA2IDIuMDYgMCAwIDEgMCA0LjEzWk03LjEyIDIwLjQ1SDMuNTZWOWgzLjU2djExLjQ1WiIvPjwvc3ZnPg==)](https://www.linkedin.com/in/joseangelthorices) [![Email](https://img.shields.io/badge/Email-jathorices%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jathorices@gmail.com)
+[![Portafolio](https://img.shields.io/badge/Portafolio-818CF8?style=for-the-badge&logo=googlechrome&logoColor=white)](https://joseangelthorices.github.io/) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jos%C3%A9-%C3%A1ngel-rodr%C3%ADguez-thorices-garrocho-552b0a396/) [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jathorices@gmail.com)
 
 </div>
 
